@@ -273,37 +273,145 @@ body {
 
 /* Show Page Enhancements */
 .show-img {
-  height: 40vh;
+  height: 50vh;
+  min-height: 300px;
+  max-height: 500px;
   object-fit: cover;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-medium);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  width: 100%;
 }
 
 .show-card {
-  padding: 0;
+  border: none;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-medium);
   background-color: var(--background-white);
 }
 
-.btns {
+.show-card .card-body {
+  padding: 2rem;
+}
+
+.show-card .card-body h6 {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.show-card .user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  border-radius: 50%;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.85rem;
+}
+
+/* Reviews Section */
+.reviews-section h4 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-card {
+  transition: var(--transition);
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Form Enhancements for Review Form */
+.review-form {
+  background-color: var(--background-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.review-form .form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.review-form .form-control {
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.review-form .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 56, 92, 0.25);
 }
 
 /* Filter Enhancements */
 #filters {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
+#filters::-webkit-scrollbar {
+  display: none;
+}
+
+#filters::after {
+  content: "";
+  min-width: 20px;
+  height: 1px;
+  flex-shrink: 0;
+}
+
+/* Scroll indicator for mobile */
+@media (max-width: 768px) {
+  #filters {
+    position: relative;
+    --show-scroll-indicator: 1;
+  }
+
+  #filters::before {
+    content: "→ Scroll for more";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--background-white) 50%
+    );
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    pointer-events: none;
+    z-index: 2;
+    opacity: calc(var(--show-scroll-indicator, 1) * 0.8);
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
+}
 .filter {
   text-align: center;
   padding: 1rem;
@@ -314,8 +422,9 @@ body {
   border: 2px solid transparent;
   box-shadow: var(--shadow-light);
   min-width: 80px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-
 .filter:hover {
   border-color: var(--primary-color);
   transform: translateY(-3px);
@@ -393,8 +502,8 @@ body {
   }
 
   .filter {
-    min-width: 60px;
-    padding: 0.75rem;
+    min-width: 70px;
+    padding: 0.75rem 0.5rem;
   }
 
   .filter i {
@@ -405,6 +514,10 @@ body {
     font-size: 0.75rem;
   }
 
+  #filters {
+    padding: 1rem 0;
+    gap: 0.75rem;
+  }
   .tax-toggle {
     margin-left: 0;
     margin-top: 1rem;
@@ -413,7 +526,46 @@ body {
   }
 
   .show-img {
-    height: 30vh;
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .show-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .show-card .card-body h6 {
+    font-size: 0.8rem;
+  }
+
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .review-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Additional mobile styles for very small screens */
+@media (max-width: 576px) {
+  .show-img {
+    height: 35vh;
+    min-height: 200px;
+  }
+
+  .show-card .card-body {
+    padding: 1rem;
+  }
+
+  .container-fluid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .review-form {
+    padding: 1rem;
   }
 }
 

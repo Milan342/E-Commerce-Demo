@@ -49,6 +49,8 @@
   // Enhanced Filter Functionality
   const initializeFilters = () => {
     const filters = document.querySelectorAll(".filter");
+    const filtersContainer = document.getElementById("filters");
+
     filters.forEach((filter) => {
       filter.addEventListener("click", () => {
         // Remove active class from all filters
@@ -63,6 +65,28 @@
         }, 150);
       });
     });
+
+    // Handle scroll indicator visibility on mobile
+    if (filtersContainer && window.innerWidth <= 768) {
+      const updateScrollIndicator = () => {
+        const isScrollable =
+          filtersContainer.scrollWidth > filtersContainer.clientWidth;
+        const isAtEnd =
+          filtersContainer.scrollLeft >=
+          filtersContainer.scrollWidth - filtersContainer.clientWidth - 10;
+
+        const indicator = document.querySelector("#filters::before");
+        if (isScrollable && !isAtEnd) {
+          filtersContainer.style.setProperty("--show-scroll-indicator", "1");
+        } else {
+          filtersContainer.style.setProperty("--show-scroll-indicator", "0");
+        }
+      };
+
+      filtersContainer.addEventListener("scroll", updateScrollIndicator);
+      window.addEventListener("resize", updateScrollIndicator);
+      setTimeout(updateScrollIndicator, 100);
+    }
   };
 
   // Card Hover Effects
