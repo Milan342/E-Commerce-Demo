@@ -1,14 +1,218 @@
-<footer>
-    <div class="f-info">
+<footer class="bg-light mt-5">
+  <div class="container py-5">
+    <div class="row">
+      <!-- Brand Section -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5 class="fw-bold mb-3">
+          <i class="fa-regular fa-compass text-primary me-2"></i>
+          Wanderlust
+        </h5>
+        <p class="text-muted mb-4">
+          Discover amazing places around the world. From cozy cabins to luxury
+          villas, find your perfect getaway with us.
+        </p>
         <div class="f-info-socials">
+          <a href="#" class="social-link" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
+          </a>
         </div>
-        <div class="f-info-brand"> &copy; Wanderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="fw-bold mb-3">Company</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <a href="/about" class="footer-link">About Us</a>
+          </li>
+          <li class="mb-2">
+            <a href="/careers" class="footer-link">Careers</a>
+          </li>
+          <li class="mb-2"><a href="/press" class="footer-link">Press</a></li>
+          <li class="mb-2"><a href="/blog" class="footer-link">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="fw-bold mb-3">Support</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <a href="/help" class="footer-link">Help Center</a>
+          </li>
+          <li class="mb-2">
+            <a href="/contact" class="footer-link">Contact Us</a>
+          </li>
+          <li class="mb-2"><a href="/safety" class="footer-link">Safety</a></li>
+          <li class="mb-2">
+            <a href="/community" class="footer-link">Community</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="fw-bold mb-3">Legal</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <a href="/privacy" class="footer-link">Privacy Policy</a>
+          </li>
+          <li class="mb-2">
+            <a href="/terms" class="footer-link">Terms of Service</a>
+          </li>
+          <li class="mb-2">
+            <a href="/cookies" class="footer-link">Cookie Policy</a>
+          </li>
+          <li class="mb-2">
+            <a href="/sitemap" class="footer-link">Sitemap</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="fw-bold mb-3">Stay Updated</h6>
+        <p class="text-muted small mb-3">
+          Get the latest deals and travel inspiration
+        </p>
+        <form class="newsletter-form">
+          <div class="input-group input-group-sm">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Your email"
+              required
+            />
+            <button class="btn btn-primary" type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+
+    <hr class="my-4" />
+
+    <!-- Bottom Section -->
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="text-muted small mb-0">
+          &copy; 2024 Wanderlust Private Limited. All rights reserved.
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div
+          class="d-flex justify-content-md-end justify-content-start mt-2 mt-md-0"
+        >
+          <span class="badge bg-success me-2">
+            <i class="fas fa-shield-alt me-1"></i>Secure
+          </span>
+          <span class="badge bg-info me-2">
+            <i class="fas fa-award me-1"></i>Trusted
+          </span>
+          <span class="badge bg-warning">
+            <i class="fas fa-star me-1"></i>Rated
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<style>
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--background-white);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    text-decoration: none;
+    margin-right: 0.75rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-light);
+  }
+
+  .social-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.9rem;
+  }
+
+  .footer-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding-left: 5px;
+  }
+
+  .newsletter-form .input-group {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+  }
+
+  .newsletter-form .form-control {
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+
+  .newsletter-form .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  .newsletter-form .btn {
+    border: none;
+    border-radius: 0 25px 25px 0;
+  }
+
+  .f-info-socials {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1rem;
+  }
+
+  footer h6 {
+    color: var(--text-primary);
+    font-size: 1rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.5em 0.75em;
+  }
+
+  @media (max-width: 768px) {
+    .f-info-socials {
+      justify-content: center;
+    }
+
+    footer .text-md-end {
+      text-align: center !important;
+    }
+
+    .newsletter-form {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+  }
+</style>

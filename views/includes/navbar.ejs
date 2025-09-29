@@ -1,64 +1,205 @@
-<style>
-  .search-btn{
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-    
-  }
-  .search-btn:hover{
-    background-color: #fe424d;
-    color: #fff;
-
-  }
-  .search-btn i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-
-  .search-inp{
-    border-right-style: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 0.92rem;
-  }
-</style>
-
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="/listings">
+      <i class="fa-regular fa-compass me-2"></i>
+      <span class="d-none d-md-inline">Wanderlust</span>
+    </a>
+
+    <!-- Mobile Toggle -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search Destinations">
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home </a>
 
-        <% if(! currUser){ %>
-        <a class="nav-link" href="/signup"><b>SignUp</b></a>
-        <a class="nav-link" href="/login"><b>LogIn</b></a>
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Left Navigation -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="/listings">
+            <i class="fas fa-search me-1"></i>Explore
+          </a>
+        </li>
+      </ul>
+
+      <!-- Search Bar -->
+      <form class="d-flex me-3 search-form" role="search">
+        <div class="input-group">
+          <input
+            class="form-control search-input"
+            type="search"
+            placeholder="Search amazing places..."
+            aria-label="Search"
+          />
+          <button class="btn btn-primary search-btn" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Right Navigation -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">
+            <i class="fas fa-plus-circle me-1"></i>
+            <span class="d-none d-lg-inline">List your space</span>
+            <span class="d-lg-none">Add</span>
+          </a>
+        </li>
+
+        <% if(!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">
+            <i class="fas fa-user-plus me-1"></i>Sign Up
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-primary ms-2 px-3" href="/login">
+            <i class="fas fa-sign-in-alt me-1"></i>Log In
+          </a>
+        </li>
+        <% } %> <% if(currUser) { %>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle d-flex align-items-center"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div class="user-avatar me-2">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="d-none d-md-inline"><%= currUser.username %></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <h6 class="dropdown-header">Hello, <%= currUser.username %>!</h6>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="/profile">
+                <i class="fas fa-user me-2"></i>Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/my-listings">
+                <i class="fas fa-list me-2"></i>My Listings
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/bookings">
+                <i class="fas fa-calendar me-2"></i>Bookings
+              </a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item text-danger" href="/logout">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+              </a>
+            </li>
+          </ul>
+        </li>
         <% } %>
-        <% if(currUser){ %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
-        <% } %>
-      </div>
+      </ul>
     </div>
   </div>
 </nav>
+
+<style>
+  .search-form .input-group {
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    min-width: 300px;
+  }
+
+  .search-form .input-group:focus-within {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  .search-input {
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    border-radius: 50px 0 0 50px !important;
+  }
+
+  .search-input:focus {
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  .search-btn {
+    border-radius: 0 50px 50px 0 !important;
+    padding: 0.75rem 1.25rem;
+    border: none;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--primary-dark)
+    );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+  }
+
+  .dropdown-menu {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    border: none;
+    padding: 0.75rem 0;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1.25rem;
+    transition: var(--transition);
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--background-light);
+    transform: translateX(5px);
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  @media (max-width: 991px) {
+    .search-form {
+      margin: 1rem 0;
+    }
+
+    .search-form .input-group {
+      min-width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .search-form .input-group {
+      min-width: 100%;
+    }
+  }
+</style>

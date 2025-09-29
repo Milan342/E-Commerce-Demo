@@ -1,24 +1,39 @@
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
 const initData = require("./data.js");
-const Listing= require("../models/listing.js");
+const Listing = require("../models/listing.js");
 
-const MONOGO_URL= 'mongodb://127.0.0.1:27017/wanderlust'
+// Load environment variables
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 
- main()
- .then(()=>{
-    console.log(`connected to DB`); 
- })
- .catch((err)=>{
-    console.log(err); 
- });
- async function main(){
-    await mongoose.connect(MONOGO_URL)
- }
- const initDB= async ()=>{
-    await Listing.deleteMany({})
-    initData.data= initData.data.map((obj)=>({...obj, owner:"67342664308c86f3531b9d36"}))
-    await Listing.insertMany(initData.data);
-    console.log(`data was initialized`); 
+// Use Atlas URL from .env file
+const MONGO_URL =
+  process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
 
- }
- initDB();
+main()
+  .then(() => {
+    console.log(`connected to DB`);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+async function main() {
+  await mongoose.connect(MONGO_URL);
+}
+
+const initDB = async () => {
+  await Listing.deleteMany({});
+
+  // Use the actual user ID from your database
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: "67361689f88d752dac459a2b", // This is the actual user ID from your output
+  }));
+
+  await Listing.insertMany(initData.data);
+  console.log(`data was initialized`);
+};
+
+initDB();
