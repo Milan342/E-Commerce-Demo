@@ -9,7 +9,7 @@ if (process.env.NODE_ENV != "production") {
 
 // Use Atlas URL from .env file
 const MONGO_URL =
-  process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
+  process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/ecommerce-demo";
 
 main()
   .then(() => {

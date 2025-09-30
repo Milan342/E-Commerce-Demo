@@ -1,6 +1,6 @@
-# 🏡 Wanderlust - Modern E-commerce Platform
+# 🛒 E-commerce-Demo - Modern Shopping Platform
 
-A beautifully designed, full-stack e-commerce platform for property rentals and travel experiences. Built with modern web technologies and featuring a responsive, user-friendly interface.
+A beautifully designed, full-stack e-commerce platform for online shopping and product management. Built with modern web technologies and featuring a responsive, user-friendly interface.
 
 ## 🌐 Live Demo
 
@@ -17,24 +17,24 @@ A beautifully designed, full-stack e-commerce platform for property rentals and 
 - **Professional Styling**: Modern CSS with custom properties and consistent theming
 - **Mobile-First Approach**: Horizontal scrollable filters and optimized mobile layouts
 
-### 🏠 **Property Management**
+### 🛍️ **Product Management**
 
-- **Browse Listings**: Explore properties with beautiful card layouts
-- **Detailed Views**: Comprehensive property information with image galleries
-- **Category Filtering**: Interactive filter system with trending, rooms, mountains, etc.
+- **Browse Products**: Explore items with beautiful card layouts
+- **Detailed Views**: Comprehensive product information with image galleries
+- **Category Filtering**: Interactive filter system with trending, popular, featured, etc.
 - **Search Functionality**: Smart search with real-time filtering
 
 ### 👤 **User Authentication & Management**
 
 - **Secure Authentication**: Sign up, login, and logout functionality
 - **User Profiles**: Personalized user dashboards
-- **Property Ownership**: Users can list and manage their own properties
+- **Product Listing**: Users can list and manage their own products
 - **Authorization Controls**: Protected routes and user-specific actions
 
 ### ⭐ **Review & Rating System**
 
 - **5-Star Rating**: Interactive star rating system using Starability
-- **User Reviews**: Comment and rate experiences
+- **Product Reviews**: Comment and rate products
 - **Review Management**: Edit and delete review capabilities
 - **Visual Rating Display**: Beautiful star representations
 
