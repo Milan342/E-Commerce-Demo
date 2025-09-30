@@ -4,7 +4,7 @@ A beautifully designed, full-stack e-commerce platform for property rentals and 
 
 ## 🌐 Live Demo
 
-**[Visit Wanderlust](https://milan-delta-project.onrender.com/listings)**
+**[Visit E-Commerce-Demo](https://milan-delta-project.onrender.com/listings)**
 
 ---
 
